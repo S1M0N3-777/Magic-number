@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/import.css">
-    <title>Magic Number</title>
+    <title>Magic-Numbers</title>
 </head>
 <body>
     <div class="container">
@@ -29,7 +29,7 @@
             </ol>
         </div>
         <div class="buttons">
-            <p id="text1">Inserisci il numero magico</p>
+            <p id="text1">Inserisci il numero magico!</p>
             <form action="">
                 <input type="number" name="num" id="UserGuess" value="0">
                 <br>
@@ -43,52 +43,54 @@
     </div>
     <script>
    function sanitize(number) {
-    let num = number;
-    return num.trim();
+    let num = number
+    return num.trim()
 }
 
 function random(min, max) {
-    let n = Math.random() * (max - min) + min;
-    n = parseInt(n);
-    console.log(n);
-    return n;
+    let n = Math.random() * (max - min) + min
+    n = parseInt(n)
+    console.log(n)
+    return n
 }
 
-let tent = 0;
-let tentMax = 5;
-let number;
-let min = 1;
-let max = 100;
-let rnd = random(min, max);
-let indovinato = false;
 
-let button = document.querySelector("#UserButton");
-let inner1 = document.querySelector("#inner1");
-let inner2 = document.querySelector("#inner2");
+let tent = 0
+let tentMax = 5
+let number
+let min = 1
+let max = 100
+let rnd = random(min, max)
+let indovinato = false
 
-button.addEventListener("click", function(event) {
+let button = document.querySelector("#UserButton")
+let inner1 = document.querySelector("#inner1")
+let inner2 = document.querySelector("#inner2")
+
+button.addEventListener("click", function(event) { // event listener
     if (tent >= tentMax) {
-        inner1.innerHTML = "Tentativi esauriti, il numero corretto era " + rnd;
-        return;
+        inner1.innerHTML = "Tentativi esauriti!, il numero corretto era " + rnd
+        return 
     }
 
-    number = parseInt(document.querySelector("#UserGuess").value);
-    tent += 1;
-
+    number = parseInt(document.querySelector("#UserGuess").value)
+    tent += 1
+    number = sanitize(number)
     if (number < min || number > max || isNaN(number)) {
-        inner2.innerHTML = "Errore nell'inserimento!";
+        inner2.innerHTML = "Errore nell'inserimento!"
     } else if (number === rnd) {
-        inner1.innerHTML = "Hai indovinato!";
-        inner2.innerHTML = "";
-        indovinato = true;
+        inner1.innerHTML = "Hai indovinato! in " + tent + " tentativi!"
+        inner2.innerHTML = ""
+        indovinato = true
     } else if (number < rnd) {
-        inner1.innerHTML = "Numero troppo piccolo, riprova";
+        inner1.innerHTML = "Numero troppo piccolo, riprova!"
     } else {
-        inner1.innerHTML = "Numero troppo grande, riprova";
+        inner1.innerHTML = "Numero troppo grande, riprova!"
     }
 
-    inner2.innerHTML = "Hai ancora " + (tentMax - tent) + " tentativi";
-});
+    inner2.innerHTML = "Hai ancora " + (tentMax - tent) + " tentativi!"
+})
+
 </script>
 </body>
 </html>
