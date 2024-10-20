@@ -79,6 +79,7 @@ button.addEventListener("click", function(event) {
         inner2.innerHTML = "Errore nell'inserimento!";
     } else if (number === rnd) {
         inner1.innerHTML = "Hai indovinato!";
+        inner2.innerHTML = "";
         indovinato = true;
     } else if (number < rnd) {
         inner1.innerHTML = "Numero troppo piccolo, riprova";
