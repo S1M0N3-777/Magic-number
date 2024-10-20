@@ -78,7 +78,7 @@ button.addEventListener("click", function(event) {
     if (number < min || number > max || isNaN(number)) {
         inner2.innerHTML = "Errore nell'inserimento!";
     } else if (number === rnd) {
-        inner1.innerHTML = "Hai indovinato! in " + tent + " tentativi";
+        inner1.innerHTML = "Hai indovinato!";
         inner2.innerHTML = "";
         indovinato = true;
     } else if (number < rnd) {
