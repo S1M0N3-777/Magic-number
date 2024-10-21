@@ -42,7 +42,7 @@
         </div>
     </div>
     <script>
-   function sanitize(number) {
+     function sanitize(number) {
     let num = number
     return num.trim()
 }
@@ -54,7 +54,7 @@ function random(min, max) {
     return n
 }
 
-
+function hiddenScope(){
 let tent = 0
 let tentMax = 5
 let number
@@ -90,6 +90,8 @@ button.addEventListener("click", function(event) { // event listener
     inner2.innerHTML = "Hai ancora " + (tentMax - tent) + " tentativi!"
 })
 
+}
+let value = hiddenScope()
 </script>
 </body>
 </html>
