@@ -6,7 +6,51 @@
     <link rel="stylesheet" href="static/css/import.css">
     <title>Magic-Numbers</title>
 </head>
-<body>
+<style>
+   /* 
+    #prova{
+       width: 50vw;
+       height: 50vh;
+       background-color: blue; 
+    }
+    body{
+    background-color: #CCFFC5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+    .green{
+    background-color: green;
+    }
+    .yellow{
+    background-color: yellow;
+    }
+    .red{
+    background-color: red;
+    }
+    */
+    
+
+</style>
+<body id="dinamic">
+    <script>
+        //metodo cozzalo per modificare lo stile di un elemento
+        //prendo l'elemento con querySelector
+        // agisco direttamente sullo stile
+        //let elemento = document.querySelector("#prova").style
+        
+        /*  Metodo 2 elegante
+            meglio accedere ad un altro attributo
+            manipolare le classi dell'elemento via Javascript
+
+            prendo l'elemento con query selector
+            agisco sull'attributo "Classlist"
+            let elemento = document.querySelector("#prova").classList(add/remove..."nome della classe")
+            let elemento = document.querySelector("#prova").classList.toggle(add/remove..."nome della classe")         
+        */
+
+    </script>
     <div class="container">
         <h1 id="title">INDOVINA IL NUMERO</h1>
         <div class="middle-content">
@@ -73,8 +117,14 @@ button.addEventListener("click", function(event) { // event listener
         return 
     }
 
+
     number = parseInt(document.querySelector("#UserGuess").value)
     tent += 1
+    if(tent === 3){
+        let t3 = document.querySelector("#dinamic").style
+        t3.classList("yellow")
+    }
+
     if (number < min || number > max || isNaN(number)) {
         inner2.innerHTML = "Errore nell'inserimento!"
     } else if (number === rnd) {
@@ -91,7 +141,7 @@ button.addEventListener("click", function(event) { // event listener
 })
 
 }
-let value = hiddenScope()
+ hiddenScope()
 </script>
 </body>
 </html>
