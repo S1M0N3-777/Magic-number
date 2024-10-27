@@ -33,7 +33,7 @@
     
 
 </style>
-<body id="dinamic">
+<body id="dinamic" class="green">
     <script>
         //metodo cozzalo per modificare lo stile di un elemento
         //prendo l'elemento con querySelector
@@ -106,7 +106,7 @@ let min = 1
 let max = 100
 let rnd = random(min, max)
 let indovinato = false
-
+let t3 = document.querySelector("#dinamic")
 let button = document.querySelector("#UserButton")
 let inner1 = document.querySelector("#inner1")
 let inner2 = document.querySelector("#inner2")
@@ -120,10 +120,18 @@ button.addEventListener("click", function(event) { // event listener
 
     number = parseInt(document.querySelector("#UserGuess").value)
     tent += 1
-    if(tent === 3){
-        let t3 = document.querySelector("#dinamic").style
-        t3.classList("yellow")
+    if(tent === 2){
+        t3.classList.add("yellow")
+        t3.classList.remove("green")
+    }else{
+        if(tent === 4){
+        t3.classList.add("red")
+        t3.classList.remove("yellow")
+        
     }
+    }
+
+
 
     if (number < min || number > max || isNaN(number)) {
         inner2.innerHTML = "Errore nell'inserimento!"
@@ -131,6 +139,11 @@ button.addEventListener("click", function(event) { // event listener
         inner1.innerHTML = "Hai indovinato! in " + tent + " tentativi!"
         inner2.innerHTML = ""
         indovinato = true
+        button.disabled = true
+        t3.classList.remove("yellow")
+        t3.classList.remove("red")
+        t3.classList.add("green")
+        
     } else if (number < rnd) {
         inner1.innerHTML = "Numero troppo piccolo, riprova!"
     } else {

@@ -3,10 +3,13 @@
 }
 
 .green{
-    background-color: green;
+    background-color: #CCFFC5;
 }
 
 .yellow{
     background-color: yellow;
 }
 
+#dinamic{
+    transition: all 2.5s;
+}
