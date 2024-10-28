@@ -78,6 +78,8 @@
                 <input type="number" name="num" id="UserGuess" value="0">
                 <br>
                 <input type="button" name="btn" id="UserButton" value="INDOVINA">
+                <br>
+                <input type="button" name="rtrbtn" id="RetryButton" value="RINCOMINCIA">
             </form> 
         </div>
         <div class="bottom-inner">
@@ -107,11 +109,22 @@ let max = 100
 let rnd = random(min, max)
 let indovinato = false
 let t3 = document.querySelector("#dinamic")
+t3.classList.add("green")
+t3.classList.remove("yellow")
+t3.classList.remove("red")
 let button = document.querySelector("#UserButton")
 let inner1 = document.querySelector("#inner1")
 let inner2 = document.querySelector("#inner2")
+inner2.innerHTML = "Hai " + tentMax + " tentativi con un nuovo numero!"
+
+function test(){
+    console.log("HERE")
+}
+
 
 button.addEventListener("click", function(event) { // event listener
+    console.log("HERE")
+    
     if (tent >= tentMax) {
         inner1.innerHTML = "Tentativi esauriti!, il numero corretto era " + rnd
         return 
@@ -124,7 +137,7 @@ button.addEventListener("click", function(event) { // event listener
         t3.classList.add("yellow")
         t3.classList.remove("green")
     }else{
-        if(tent === 4){
+        if(tent === 4){ 
         t3.classList.add("red")
         t3.classList.remove("yellow")
         
@@ -155,6 +168,12 @@ button.addEventListener("click", function(event) { // event listener
 
 }
  hiddenScope()
+ let retry = document.querySelector("#RetryButton")
+ retry.addEventListener("click", function(event){
+    hiddenScope()
+    
+ })
+
 </script>
 </body>
 </html>
